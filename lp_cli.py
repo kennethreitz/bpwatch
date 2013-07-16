@@ -28,13 +28,13 @@ from docopt import docopt
 
 def dispatch_cli(args):
     if args.get('init'):
-        init(args.get('<language>'), args.get('<token>'))
+        init(args.get(args.get('<token>'))
+
+    if args.get('build'):
+        init(args.get('<language>'), args.get('<release>'), args.get('<build_id>'))
 
     if args.get('--debug'):
         print get_state()
-
-    if args.get('log'):
-        log(args.get('<event>'), args.get('<value>'))
 
     if args.get('start'):
         start(args.get('<event>'))
@@ -65,11 +65,6 @@ def get_logplex(state):
     """Returns a Logplex Client based on the environment."""
     return Logplex(token=state.get('token'))
 
-def format_entry(state, event, value=None):
-    """Formats entries based on the environment."""
-    lang = state.get('language')
-    return 'measure.{lang}.{event}={value}'.format(lang=lang, event=event, value=value)
-
 def to_timestamp(dt=None):
     """Given a datetime object, returns the expected timestamp.
     If none is provided, datetime.utcnow() is used.
@@ -98,7 +93,7 @@ def build(language, release, build_id):
     state = get_state()
     state['language'] = language
     state['release'] = release
-    state['release'] = build_id
+    state['build'] = build_id
 
     set_state(state)
 
@@ -114,32 +109,38 @@ def start(event, logit=False):
 
     set_state(state)
 
-    if logit:
-        log('{}.start'.format(event), now)
-
 def stop(event):
     """Stop a given time measurement, measures the delta, logs it."""
     state = get_state()
 
     now = datetime.utcnow()
-    try:
-        then = from_timestamp(state['starts'][event])
-        delta = (now - then).total_seconds()
-    except KeyError:
-        # Stopping an event that never started.
-        delta = None
 
-    log('{}.end'.format(event), now)
-    if delta:
-        log('{}.duration'.format(event), delta)
+    then_ts = state['starts'][event]
+    then = from_timestamp(then_ts)
+    delta = (now - then).total_seconds()
 
+    points = [
+        ('start', then_ts),
+        ('end', to_timestamp(now)),
+        ('duration', delta),
+        ('level', 5),
+        ('build_id', state['build']),
+        ('build_id', state['release']),
+    ]
 
-def log(event, value):
-    """Logs a given event and value."""
-    state = get_state()
+    to_send = []
+    for k, v in points:
+        to_send.append('measure.{lang}.{event}.{aspect}={value}'.format(
+            lang=state['language'],
+            event=event,
+            aspect=k,
+            value=v
+        ))
+
     logplex = get_logplex(state)
-    entry = format_entry(state, event, value)
-    logplex.puts(entry)
+    payload = ' '.join(to_send)
+    logplex.puts(payload)
+
 
 def main():
     arguments = docopt(__doc__, version='Logplex')
@@ -148,7 +149,6 @@ def main():
     except Exception:
         exit()
 
-#
 
 if __name__ == '__main__':
     main()
