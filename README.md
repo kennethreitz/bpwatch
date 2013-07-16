@@ -29,7 +29,7 @@ Start a timer:
 
 End a timer:
 
-    $ $ lplex stop dance
+    $ lplex stop dance
 
 Logplex output of all above:
 
