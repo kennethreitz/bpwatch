@@ -9,5 +9,5 @@ BPWATCH_DISTRO_PATH = os.environ.get('BPWATCH_DISTRO_PATH', DEFUALT_PATH)
 
 sys.path.insert(0, BPWATCH_DISTRO_PATH)
 
-import lp_cli
-lp_cli.main()
+import bp_cli
+bp_cli.main()

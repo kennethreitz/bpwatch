@@ -123,15 +123,14 @@ def stop(event):
         ('start', then_ts),
         ('end', to_timestamp(now)),
         ('duration', delta),
-        ('level', 5),
         ('build_id', state['build']),
         ('buildpack_version', state['release']),
+        ('buildpack', state['language']),
     ]
 
     to_send = []
     for k, v in points:
-        to_send.append('measure.{lang}.{event}.{aspect}={value}'.format(
-            lang=state['language'],
+        to_send.append('measure.{event}.{aspect}={value}'.format(
             event=event,
             aspect=k,
             value=v
