@@ -4,12 +4,12 @@
 Logplex instrumentation.
 
 Usage:
-  lp init <language> [<token>]
-  lp start <event>
-  lp stop <event>
-  lp log <event> <value>
-  lp -h | --help
-  lp --debug
+  lplex init <language> [<token>]
+  lplex start <event>
+  lplex stop <event>
+  lplex log <event> <value>
+  lplex -h | --help
+  lplex --debug
 
 Options:
   -h --help     Show this screen.
@@ -20,7 +20,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-LP_STORE_PATH = os.environ.get('LP_STORE_PATH', 'lp.json')
+LP_STORE_PATH = os.environ.get('LP_STORE_PATH', 'lplex.json')
 
 from logplex import Logplex
 from docopt import docopt

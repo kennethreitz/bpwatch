@@ -8,7 +8,7 @@ You should be able to just stick it in a directory and go:
     $ git clone git@github.com:kennethreitz/logplex-instrument.git
     $ cd logplex-instrument
     $ make
-    $ ./lp
+    $ ./lplex
 
 You can then move `lp` and `lp.zip` wherever you like.
 
@@ -22,15 +22,15 @@ Configure logplex with the disired prefix and token:
 
 Log something:
 
-    $ lp log life 42
+    $ lplex log life 42
 
 Start a timer:
 
-    $ lp start dance
+    $ lplex start dance
 
 End a timer:
 
-    $ $ lp stop dance
+    $ $ lplex stop dance
 
 Logplex output of all above:
 
@@ -42,11 +42,11 @@ Logplex output of all above:
 Configuration
 -------------
 
-By default, `lp` stores its data in `lp.json`. This is configurable with the `LP_STORE_PATH` environment variable.
+By default, `lplex` stores its data in `lplex.json`. This is configurable with the `LP_STORE_PATH` environment variable.
 
     $ export LP_STORE_PATH=/tmp/somefile
 
-By default, `lp` requires that its distro (`lp.zip`) is next to the executable. This is configurable with the `LP_DISTRO_PATH` environment variable.
+By default, `lplex` requires that its distro (`lplex.zip`) is next to the executable. This is configurable with the `LP_DISTRO_PATH` environment variable.
 
-    $ export LP_DISTRO_PATH=/tmp/lp.zip
+    $ export LP_DISTRO_PATH=/tmp/lplex.zip
 

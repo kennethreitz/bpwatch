@@ -11,7 +11,7 @@ print __file__
 try:
     distro = zipimporter(LP_DISTRO_PATH)
 except ZipImportError:
-    print "The 'lp.zip' distribution wasn't found. Try this:"
+    print "The 'lplex.zip' distribution wasn't found. Try this:"
     print " $ make"
     exit()
 
