@@ -24,6 +24,8 @@ from datetime import datetime, timedelta
 # Path hack
 sys.path.insert(0, os.path.abspath('../vendor'))
 
+LP_STORE_PATH = os.environ.get('LP_STORE_PATH', 'lp.json')
+
 from logplex import Logplex
 from docopt import docopt
 
@@ -48,15 +50,15 @@ def dispatch_cli(args):
 
 def get_state():
     try:
-        with open('lp.json', 'r') as f:
+        with open(LP_STORE_PATH, 'r') as f:
             return json.loads(f.read())
     except IOError:
-      with open('lp.json', 'w') as f:
+      with open(LP_STORE_PATH, 'w') as f:
         f.write(json.dumps(dict()))
         return get_state()
 
 def set_state(state):
-    with open('lp.json', 'w') as f:
+    with open(LP_STORE_PATH, 'w') as f:
         f.write(json.dumps(state))
 
 def get_logplex(state):

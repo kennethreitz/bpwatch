@@ -38,3 +38,13 @@ Logplex output of all above:
     2013-07-16T07:44:21+00:00 app[python-logplex]: measure.python.dance.start=2013-07-16T07:44:21.550399+00:00
     2013-07-16T07:44:24+00:00 app[python-logplex]: measure.python.dance.end=2013-07-16 07:44:24.246280
     2013-07-16T07:44:24+00:00 app[python-logplex]: measure.python.dance.duration=2.695881
+
+Configuration
+-------------
+
+By default, `lp` stores its data in `lp.json`. This is configurable with the `LP_STORE_PATH` environment variable.
+
+    $ export LP_STORE_PATH=/tmp/somefile
+
+
+
