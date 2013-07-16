@@ -5,11 +5,11 @@ This is a simple CLI for instrumenting buildpacks.
 
 You should be able to just stick it in a directory and go:
 
-    $ git clone https://github.com/kennethreitz/lplex.git && cd lplex
+    $ git clone https://github.com/kennethreitz/bpwatch.git && cd bpwatch
     $ make
-    $ ./lplex
+    $ ./bpwatch
 
-You can then move `lplex` and `lplex.zip` wherever you like.
+You can then move `bpwatch` and `bpwatch.zip` wherever you like.
 
 
 Usage
@@ -17,19 +17,16 @@ Usage
 
 Configure logplex with the disired prefix and token:
 
-    $ lplex init python secretlogplextoken
-
-Log something:
-
-    $ lplex log life 42
+    $ bpwatch init secretlogplextoken
+    $ bpwatch build python v34 $REQUEST_ID
 
 Start a timer:
 
-    $ lplex start dance
+    $ bpwatch start dance
 
 End a timer:
 
-    $ lplex stop dance
+    $ bpwatch stop dance
 
 Logplex output of all above:
 
@@ -41,11 +38,11 @@ Logplex output of all above:
 Configuration
 -------------
 
-By default, `lplex` stores its data in `lplex.json`. This is configurable with the `LPLEX_STORE_PATH` environment variable.
+By default, `bpwatch` stores its data in `bpwatch.json`. This is configurable with the `BPWATCH_STORE_PATH` environment variable.
 
-    $ export LPLEX_STORE_PATH=/tmp/somefile
+    $ export BPWATCH_STORE_PATH=/tmp/somefile
 
-By default, `lplex` requires that its distro (`lplex.zip`) is next to the executable. This is configurable with the `LPLEX_DISTRO_PATH` environment variable.
+By default, `bpwatch` requires that its distro (`bpwatch.zip`) is next to the executable. This is configurable with the `BPWATCH_DISTRO_PATH` environment variable.
 
-    $ export LPLEX_DISTRO_PATH=/tmp/lplex.zip
+    $ export BPWATCH_DISTRO_PATH=/tmp/bpwatch.zip
 

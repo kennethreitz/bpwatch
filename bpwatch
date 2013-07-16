@@ -5,9 +5,9 @@ import sys
 
 
 DEFUALT_PATH = '{}.zip'.format(os.path.abspath(__file__))
-LP_DISTRO_PATH = os.environ.get('LPLEX_DISTRO_PATH', DEFUALT_PATH)
+BPWATCH_DISTRO_PATH = os.environ.get('BPWATCH_DISTRO_PATH', DEFUALT_PATH)
 
-sys.path.insert(0, LP_DISTRO_PATH)
+sys.path.insert(0, BPWATCH_DISTRO_PATH)
 
 import lp_cli
 lp_cli.main()

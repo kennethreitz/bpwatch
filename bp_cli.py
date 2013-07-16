@@ -4,12 +4,12 @@
 Logplex instrumentation.
 
 Usage:
-  lplex init <token>
-  lplex build <language> <release> <build_id>
-  lplex start <event>
-  lplex stop <event>
-  lplex -h | --help
-  lplex --debug
+  bpwatch init <token>
+  bpwatch build <language> <release> <build_id>
+  bpwatch start <event>
+  bpwatch stop <event>
+  bpwatch -h | --help
+  bpwatch --debug
 
 Options:
   -h --help     Show this screen.
@@ -21,7 +21,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-LPLEX_STORE_PATH = os.environ.get('LPLEX_STORE_PATH', 'lplex.json')
+BPWATCH_STORE_PATH = os.environ.get('BPWATCH_STORE_PATH', 'bpwatch.json')
 
 from logplex import Logplex
 from docopt import docopt
@@ -49,16 +49,16 @@ def get_state():
     If the DB hasn't been created, it will be.
     """
     try:
-        with open(LPLEX_STORE_PATH, 'r') as f:
+        with open(BPWATCH_STORE_PATH, 'r') as f:
             return json.loads(f.read())
     except IOError:
-        with open(LPLEX_STORE_PATH, 'w') as f:
+        with open(BPWATCH_STORE_PATH, 'w') as f:
             f.write(json.dumps(dict()))
         return get_state()
 
 def set_state(state):
     """Writes the given environment state to disk."""
-    with open(LPLEX_STORE_PATH, 'w') as f:
+    with open(BPWATCH_STORE_PATH, 'w') as f:
         f.write(json.dumps(state))
 
 def get_logplex(state):

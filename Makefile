@@ -1,6 +1,6 @@
 distro:
-	rm -fr lplex.zip
-	zip -r lplex.zip . -x ".*"
+	rm -fr bpwatch.zip
+	zip -r bpwatch.zip . -x ".*"
 build: dep-logplex dep-docopt self
 dep-logplex:
 	rm -fr logplex
