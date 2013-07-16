@@ -51,8 +51,8 @@ def get_state():
         with open(LPLEX_STORE_PATH, 'r') as f:
             return json.loads(f.read())
     except IOError:
-      with open(LPLEX_STORE_PATH, 'w') as f:
-        f.write(json.dumps(dict()))
+        with open(LPLEX_STORE_PATH, 'w') as f:
+            f.write(json.dumps(dict()))
         return get_state()
 
 def set_state(state):
