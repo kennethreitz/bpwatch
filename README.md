@@ -5,8 +5,7 @@ This is a simple CLI for instrumenting buildpacks.
 
 You should be able to just stick it in a directory and go:
 
-    $ git clone git@github.com:kennethreitz/logplex-instrument.git
-    $ cd logplex-instrument
+    $ git clone git@github.com:kennethreitz/lplex.git && cd lplex
     $ make
     $ ./lplex
 
