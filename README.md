@@ -30,10 +30,13 @@ End a timer:
 
 Logplex output of all above:
 
-    2013-07-16T07:44:15+00:00 app[python-logplex]: measure.python.life=42
-    2013-07-16T07:44:21+00:00 app[python-logplex]: measure.python.dance.start=2013-07-16T07:44:21.550399+00:00
-    2013-07-16T07:44:24+00:00 app[python-logplex]: measure.python.dance.end=2013-07-16 07:44:24.246280
-    2013-07-16T07:44:24+00:00 app[python-logplex]: measure.python.dance.duration=2.695881
+    measure.python.dance.start=2013-07-16T12:14:15.422563+00:00
+    measure.python.dance.end=2013-07-16T12:14:20.618738+00:00
+    measure.python.dance.duration=5.196175
+    measure.python.dance.level=5
+    measure.python.dance.build_id=cf66e9b2-95a6-464d-966f-8f99f421d8fd
+    measure.python.dance.buildpack_version=v34
+    
 
 Configuration
 -------------
