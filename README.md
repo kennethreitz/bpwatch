@@ -46,5 +46,10 @@ By default, `lp` stores its data in `lp.json`. This is configurable with the `LP
 
     $ export LP_STORE_PATH=/tmp/somefile
 
+By default, `lp` requires that its distro (`lp.zip`) is next to the executable. This is configurable with the `LP_DISTRO_PATH` environment variable.
+
+    $ export LP_DISTRO_PATH=/tmp/lp.zip
+
+
 
 
