@@ -1,7 +1,7 @@
-Logplex-Instrument
-==================
+BP-Watch
+========
 
-This is a simple CLI for instrumenting buildpacks.
+This is a simple CLI for instrumenting buildpacks with Logplex.
 
 You should be able to just stick it in a directory and go:
 
