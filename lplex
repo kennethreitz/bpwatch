@@ -7,7 +7,6 @@ from zipimport import zipimporter, ZipImportError
 DEFUALT_PATH = '{}.zip'.format(os.path.abspath(__file__))
 LP_DISTRO_PATH = os.environ.get('LP_DISTRO_PATH', DEFUALT_PATH)
 
-print __file__
 try:
     distro = zipimporter(LP_DISTRO_PATH)
 except ZipImportError:
