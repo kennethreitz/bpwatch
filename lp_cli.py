@@ -28,10 +28,10 @@ from docopt import docopt
 
 def dispatch_cli(args):
     if args.get('init'):
-        init(args.get(args.get('<token>'))
+        init(args.get('<token>'))
 
     if args.get('build'):
-        init(args.get('<language>'), args.get('<release>'), args.get('<build_id>'))
+        build(args.get('<language>'), args.get('<release>'), args.get('<build_id>'))
 
     if args.get('--debug'):
         print get_state()
