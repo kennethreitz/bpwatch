@@ -1,6 +1,5 @@
-self:
-	rm -fr lp.zip
-	curl -O https://github.com/kennethreitz/logplex-instrument/archive/lp.zip
+distro:
+	zip -r lp.zip .
 build: dep-logplex dep-docopt self
 dep-logplex:
 	rm -fr logplex
