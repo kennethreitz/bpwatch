@@ -1,4 +1,7 @@
 all: dep-logplex dep-docopt
+self:
+	rm -fr lp.zip
+	curl -O https://github.com/kennethreitz/logplex-instrument/archive/lp.zip
 dep-logplex:
 	rm -fr logplex
 	git clone git@github.com:kennethreitz/python-logplex.git --depth 1
