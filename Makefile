@@ -1,6 +1,6 @@
 distro:
-	rm -fr lp.zip
-	zip -r lp.zip . -x ".*"
+	rm -fr lplex.zip
+	zip -r lplex.zip . -x ".*"
 build: dep-logplex dep-docopt self
 dep-logplex:
 	rm -fr logplex
