@@ -125,7 +125,7 @@ def stop(event):
         ('duration', delta),
         ('level', 5),
         ('build_id', state['build']),
-        ('build_id', state['release']),
+        ('buildpack_version', state['release']),
     ]
 
     to_send = []
