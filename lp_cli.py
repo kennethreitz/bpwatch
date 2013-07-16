@@ -16,13 +16,9 @@ Options:
   --version     Show version.
 """
 
-import json
-import sys
 import os
+import json
 from datetime import datetime, timedelta
-
-# Path hack
-sys.path.insert(0, os.path.abspath('../vendor'))
 
 LP_STORE_PATH = os.environ.get('LP_STORE_PATH', 'lp.json')
 
