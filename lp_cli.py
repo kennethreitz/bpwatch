@@ -4,10 +4,10 @@
 Logplex instrumentation.
 
 Usage:
-  lplex init <language> [<token>]
+  lplex init <token>
+  lplex build <language> <release> <build_id>
   lplex start <event>
   lplex stop <event>
-  lplex log <event> <value>
   lplex -h | --help
   lplex --debug
 
@@ -15,6 +15,7 @@ Options:
   -h --help     Show this screen.
   --version     Show version.
 """
+
 
 import os
 import json
@@ -86,16 +87,23 @@ def from_timestamp(ts):
     return dt + timedelta(microseconds=us)
 
 
-def init(language, token=None):
+def init(token=None):
     """Intializes the environment and configures logplex."""
     state = get_state()
-    state['language'] = language
     state['token'] = token
 
     set_state(state)
 
-def start(event):
-    """Starts a new time measurement, logs it."""
+def build(language, release, build_id):
+    state = get_state()
+    state['language'] = language
+    state['release'] = release
+    state['release'] = build_id
+
+    set_state(state)
+
+def start(event, logit=False):
+    """Starts a new time measurement"""
     state = get_state()
     now = to_timestamp()
 
@@ -106,7 +114,8 @@ def start(event):
 
     set_state(state)
 
-    log('{}.start'.format(event), now)
+    if logit:
+        log('{}.start'.format(event), now)
 
 def stop(event):
     """Stop a given time measurement, measures the delta, logs it."""
@@ -138,6 +147,8 @@ def main():
         dispatch_cli(arguments)
     except Exception:
         exit()
+
+#
 
 if __name__ == '__main__':
     main()
