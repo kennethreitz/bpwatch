@@ -9,7 +9,7 @@ You should be able to just stick it in a directory and go:
     $ make
     $ ./lplex
 
-You can then move `lp` and `lp.zip` wherever you like.
+You can then move `lplex` and `lplex.zip` wherever you like.
 
 
 Usage
@@ -17,7 +17,7 @@ Usage
 
 Configure logplex with the disired prefix and token:
 
-    $ lp init python secretlogplextoken
+    $ lplex init python secretlogplextoken
 
 Log something:
 
@@ -41,11 +41,11 @@ Logplex output of all above:
 Configuration
 -------------
 
-By default, `lplex` stores its data in `lplex.json`. This is configurable with the `LP_STORE_PATH` environment variable.
+By default, `lplex` stores its data in `lplex.json`. This is configurable with the `LPLEX_STORE_PATH` environment variable.
 
-    $ export LP_STORE_PATH=/tmp/somefile
+    $ export LPLEX_STORE_PATH=/tmp/somefile
 
-By default, `lplex` requires that its distro (`lplex.zip`) is next to the executable. This is configurable with the `LP_DISTRO_PATH` environment variable.
+By default, `lplex` requires that its distro (`lplex.zip`) is next to the executable. This is configurable with the `LPLEX_DISTRO_PATH` environment variable.
 
-    $ export LP_DISTRO_PATH=/tmp/lplex.zip
+    $ export LPLEX_DISTRO_PATH=/tmp/lplex.zip
 

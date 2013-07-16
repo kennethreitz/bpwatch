@@ -20,7 +20,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-LP_STORE_PATH = os.environ.get('LP_STORE_PATH', 'lplex.json')
+LP_STORE_PATH = os.environ.get('LPLEX_STORE_PATH', 'lplex.json')
 
 from logplex import Logplex
 from docopt import docopt
