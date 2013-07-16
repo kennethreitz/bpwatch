@@ -55,5 +55,6 @@ class Logplex(object):
                 auth=auth,
                 headers=headers,
                 data=data,
-                timeout=self.timeout
+                timeout=self.timeout,
+                verify=False
             )
