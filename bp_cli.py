@@ -137,7 +137,8 @@ def stop(event):
         ))
 
     logplex = get_logplex(state)
-    payload = ' '.join(to_send)
+    payload = ' '.join(to_send + [''])
+
     logplex.puts(payload)
 
 
