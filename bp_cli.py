@@ -123,7 +123,6 @@ def stop(event):
         ('start', then_ts),
         ('end', to_timestamp(now)),
         ('duration', delta),
-        ('release_id', state['build']),
         ('buildpack_version', state['release']),
         ('buildpack', state['language']),
     ]
@@ -135,6 +134,9 @@ def stop(event):
             aspect=k,
             value=v
         ))
+
+    # Special-case request_id.
+    to_send.append('request_id={}'.format(state['build']))
 
     logplex = get_logplex(state)
     payload = ' '.join(to_send + [''])
