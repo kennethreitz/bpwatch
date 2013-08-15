@@ -123,7 +123,7 @@ def stop(event):
         ('start', then_ts),
         ('end', to_timestamp(now)),
         ('duration', delta),
-        ('build_id', state['build']),
+        ('release_id', state['build']),
         ('buildpack_version', state['release']),
         ('buildpack', state['language']),
     ]
